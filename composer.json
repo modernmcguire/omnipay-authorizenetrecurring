@@ -1,0 +1,53 @@
+{
+    "name": "modernmcguire/omnipay-authorizenetrecurring",
+    "type": "library",
+    "license": "MIT",
+    "description": "Authorize.Net processing library for the Omnipay 3.x which work just with Recurring Billing. Recurring Billing methods enable you to manage regular payment subscriptions in Authorize.Net Payment Gateway.",
+    "keywords": [
+        "authorize.net",
+        "gateway",
+        "recurring",
+        "billing",
+        "merchant",
+        "subscriptions",
+        "omnipay",
+        "payment"
+    ],
+    "homepage": "https://github.com/modernmcguire/omnipay-authorizenetrecurring",
+    "authors": [
+        {
+            "name": "Cimpleo",
+            "homepage": "https://cimpleo.com/",
+            "email": "hello@cimpleo.com"
+        },
+        {
+           "name": "Denis Sidorov",
+           "email": "denis.sidorov@cimpleo.com",
+           "role": "Developer"
+        },
+        {
+           "name": "Vlad Lesovskiy",
+           "email": "vlad.lesovskiy@cimpleo.com",
+           "role": "Developer"
+        },
+        {
+            "name": "Modern McGuire",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Omnipay\\AuthorizeNetRecurring\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "omnipay/common": "^3",
+        "academe/authorizenet-objects": "^0.7",
+        "symfony/property-access": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6",
+        "omnipay/tests": "^3"
+    }
+}
