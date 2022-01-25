@@ -22,8 +22,8 @@ class Schedule extends AbstractModel
     public function __construct($parameters = null) {
         parent::__construct();
 
-        $this->setIntervalLength($parameters['intervalLength']);
         $this->setIntervalUnit($parameters['intervalUnit']);
+        $this->setIntervalLength($parameters['intervalLength']);
         $this->setStartDate($parameters['startDate']);
         $this->setTotalOccurrences($parameters['totalOccurrences']);
         if (isset($parameters['trialOccurrences'])) {
@@ -52,9 +52,20 @@ class Schedule extends AbstractModel
     }
     
     protected function setIntervalLength(int $value) {
-        if ($value < 7 || $value > 365) {
-            throw new InvalidRequestException('Interval Length must be a string, between "7" and "365".');
+
+        switch ($this->intervalUnit) {
+            case 'months':
+                if ($value < 1 || $value > 12) {
+                    throw new InvalidRequestException('Interval Length on a unit of months must be a string between 1 and 12, inclusive.');
+                }
+                break;
+            case 'days':
+                if ($value < 7 || $value > 365) {
+                    throw new InvalidRequestException('Interval Length must be a string, between "7" and "365".');
+                }
+                break;
         }
+
         $this->intervalLength = (string)$value;
     }
 
